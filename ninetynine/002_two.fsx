@@ -7,19 +7,26 @@
 
 open System
 
-let rec lastButOneRec array last = 
+let lastButOneRec array = 
+    let rec lbo arr last = 
+        match arr with
+        | [] -> last
+        | hd :: [] -> last
+        | hd :: tl -> lbo tl hd
+        
     match array with
-    | hd :: [] -> last
-    | hd :: tl -> lastButOneRec tl hd
+    | hd :: [] -> hd
+    | hd :: tl -> lbo tl hd
     | _ -> failwith "Empty list."
 
+
 let arr1 = [1; 2; 3; 4]
-let result = lastButOneRec arr1.Tail arr1.Head
+let result = lastButOneRec arr1
     
 printfn "%i" result
 
 let arr2 = ['a'..'z']
-let result' = lastButOneRec arr2.Tail arr2.Head
+let result' = lastButOneRec arr2
 
 printfn "%c" result'
 
