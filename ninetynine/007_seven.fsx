@@ -1,9 +1,5 @@
 /// Problem 7 : Flatten a nested list structure.
 /// Example in F#: 
-/// A palindrome can be read forward or backward; e.g. (x a m a x).
-/// 
-/// Example in F#: 
-/// Example in F#: 
 /// 
 type 'a NestedList = List of 'a NestedList list | Elem of 'a
 ///
