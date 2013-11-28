@@ -16,3 +16,12 @@ let compress ls =
 
 let result = compress ["a";"a";"a";"a";"b";"c";"c";"a";"a";"d";"e";"e";"e";"e"]
 printfn "%A" result 
+
+let compressfb ls =
+    let collect x = function
+        | (y::xs)::xss when x = y -> (x::y::xs)::xss
+        | xss -> [x]::xss
+    List.foldBack collect ls []
+
+let result' = compressfb ["a";"a";"a";"a";"b";"c";"c";"a";"a";"d";"e";"e";"e";"e"]
+printfn "%A" result' 
