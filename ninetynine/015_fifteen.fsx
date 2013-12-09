@@ -7,5 +7,5 @@
 let repli ls n =
     ls |> List.collect ( List.replicate n)
        
-let result = repli ['a';'b';'c'] 3
+let result = repli (List.ofSeq "abc") 3
 printfn "%A" result 
